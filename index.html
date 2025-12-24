@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>🎄 Christmas Gift For You</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      font-family: "Segoe UI", sans-serif;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px 40px;
+      border-radius: 16px;
+      text-align: center;
+      width: 350px;
+      box-shadow: 0 0 30px rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 80px;
+      padding: 8px;
+      margin: 5px;
+      border-radius: 8px;
+      border: none;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background: #ff4d6d;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ff2e55;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 16px;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    .tree {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .snow {
+      position: absolute;
+      top: -10px;
+      color: white;
+      user-select: none;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="tree">🎄✨🎁</div>
+    <h1>Merry Christmas</h1>
+    <p>Nhập ngày sinh của em nhé 💖</p>
+
+    <div>
+      <input id="day" type="number" placeholder="Ngày">
+      <input id="month" type="number" placeholder="Tháng">
+      <input id="year" type="number" placeholder="Năm">
+    </div>
+
+    <button onclick="showMessage()">Nhận lời chúc</button>
+
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    function showMessage() {
+      const day = document.getElementById("day").value;
+      const month = document.getElementById("month").value;
+      const msgBox = document.getElementById("message");
+
+      let message = "";
+
+      // 🎄 GIÁNG SINH – BẠN VIẾT LỜI CHÚC Ở ĐÂY
+      if (day == 24 && month == 12) {
+        message = "NOEL, lúc này là thời khắc chuyển giao giữa năm cũ và năm mới, anh chúc em quên đi mọi muộn phiền của năm cũ, luôn hướng tới những điều tích cực, anh luôn mong em bình an và hạnh phúc, chúc em có 1 năm mới như kế hoạch nhoooo, cô gái nhỏ của ❤️❤️❤️❤️😍😍😘😘😘";
+      } 
+      else if (day == 25 && month == 12) {
+        message = "NOEL, lúc này là thời khắc chuyển giao giữa năm cũ và năm mới, anh chúc em quên đi mọi muộn phiền của năm cũ, luôn hướng tới những điều tích cực, anh luôn mong em bình an và hạnh phúc, chúc em có 1 năm mới như kế hoạch nhoooo, cô gái nhỏ của ❤️❤️❤️❤️😍😍😘😘😘";
+      } 
+      else {
+        message = "NOEL, lúc này là thời khắc chuyển giao giữa năm cũ và năm mới, anh chúc em quên đi mọi muộn phiền của năm cũ, luôn hướng tới những điều tích cực, anh luôn mong em bình an và hạnh phúc, chúc em có 1 năm mới như kế hoạch nhoooo, cô gái nhỏ của ❤️❤️❤️❤️😍😍😘😘😘";
+      }
+
+      msgBox.innerText = message;
+    }
+
+    // ❄️ TUYẾT RƠI
+    function createSnow() {
+      const snow = document.createElement("div");
+      snow.className = "snow";
+      snow.innerText = "❄️";
+      snow.style.left = Math.random() * window.innerWidth + "px";
+      snow.style.animationDuration = 3 + Math.random() * 5 + "s";
+      snow.style.opacity = Math.random();
+      snow.style.fontSize = 10 + Math.random() * 20 + "px";
+      document.body.appendChild(snow);
+
+      setTimeout(() => {
+        snow.remove();
+      }, 8000);
+    }
+
+    setInterval(createSnow, 200);
+  </script>
+
+</body>
+</html>
